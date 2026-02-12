@@ -17,10 +17,12 @@ config/icon="res://sprites/icon.svg"
 
 [display]
 
-window/size/viewport_width=2000
-window/size/viewport_height=2000
+window/size/viewport_width=1900
+window/size/viewport_height=1060
 window/size/initial_position_type=0
-window/size/initial_position=Vector2i(1000, 500)
+window/size/borderless=true
+window/stretch/mode="viewport"
+window/stretch/scale=0.7
 
 [input]
 
