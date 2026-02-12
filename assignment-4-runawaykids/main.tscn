@@ -5,7 +5,12 @@
 
 [node name="Main" type="Node" unique_id=62653646]
 
-[node name="Grid" parent="." unique_id=196040151 instance=ExtResource("1_0xm2m")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1727083261]
+position = Vector2(592, 584)
+metadata/_edit_group_ = true
 
-[node name="Player" parent="." unique_id=873568929 instance=ExtResource("2_0xm2m")]
-position = Vector2(66, 63)
+[node name="Grid" parent="Camera2D" unique_id=196040151 instance=ExtResource("1_0xm2m")]
+position = Vector2(-584, -584)
+
+[node name="Player" parent="Camera2D" unique_id=873568929 instance=ExtResource("2_0xm2m")]
+position = Vector2(-512, -520)

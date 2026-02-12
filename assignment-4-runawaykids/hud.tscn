@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://begyitj62lu87"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1514634162]
+
+[node name="Label" type="Label" parent="." unique_id=1184020919]
+anchors_preset = -1
+anchor_left = 0.004
+anchor_top = -0.004
+anchor_right = 0.004
+anchor_bottom = -0.004
+offset_left = -16.0
+offset_right = 800.0
+offset_bottom = 128.0
+text = "Score: "
+metadata/_edit_group_ = true
