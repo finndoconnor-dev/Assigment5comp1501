@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://h8fh40aw6yn5" path="res://player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://sbe0lmf05ggd" path="res://kid.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://begyitj62lu87" path="res://hud.tscn" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://co81yivu3l2n4" path="res://kid_controller.gd" id="5_lquwl"]
 
 [node name="Main" type="Node" unique_id=62653646]
 
@@ -28,18 +27,7 @@ position = Vector2(-512, -520)
 [node name="Kid2" parent="Camera2D" unique_id=196460270 instance=ExtResource("3_1bvp3")]
 position = Vector2(-592, -584)
 
-<<<<<<< HEAD
 [node name="Kid" parent="Camera2D" unique_id=1292562223 instance=ExtResource("3_1bvp3")]
 position = Vector2(-592, -584)
-=======
-[node name="Kid" parent="Camera2D/Kids" unique_id=1292562223 instance=ExtResource("3_1bvp3")]
-visible = false
-
-[node name="Kid2" parent="Camera2D/Kids" unique_id=196460270 instance=ExtResource("3_1bvp3")]
-visible = false
->>>>>>> f899dadae4bd5ec1b46fa406e6fdda25f89c06f6
 
 [node name="Hud" parent="." unique_id=1739377850 instance=ExtResource("4_1bvp3")]
-
-[node name="KidController" type="Node" parent="." unique_id=1848530961]
-script = ExtResource("5_lquwl")
