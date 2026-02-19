@@ -24,10 +24,10 @@ position = Vector2(-584, -584)
 [node name="Player" parent="Camera2D" unique_id=873568929 instance=ExtResource("2_0xm2m")]
 position = Vector2(-512, -520)
 
-[node name="Kids" type="Node" parent="Camera2D" unique_id=1057081719]
+[node name="Kid" parent="Camera2D" unique_id=1292562223 instance=ExtResource("3_1bvp3")]
+position = Vector2(-592, -584)
 
-[node name="Kid" parent="Camera2D/Kids" unique_id=1292562223 instance=ExtResource("3_1bvp3")]
-
-[node name="Kid2" parent="Camera2D/Kids" unique_id=196460270 instance=ExtResource("3_1bvp3")]
+[node name="Kid2" parent="Camera2D" unique_id=196460270 instance=ExtResource("3_1bvp3")]
+position = Vector2(-592, -584)
 
 [node name="Hud" parent="." unique_id=1739377850 instance=ExtResource("4_1bvp3")]
