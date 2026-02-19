@@ -19,8 +19,7 @@ func _physics_process(delta: float) -> void:
 		is_moving = false
 		return
 	
-	# Move the sprite towards the global position at speed of 5
-	sprite_2d.global_position = sprite_2d.global_position.move_toward(global_position, 5)
+	
 
 var last_dir = 0
 var random_dir = 0
@@ -49,3 +48,11 @@ func _process(delta: float) -> void:
 	
 	if is_moving:
 		last_dir = random_dir
+
+
+func _on_player_turn_end() -> void:
+	while (global_position!=sprite_2d.global_position):
+		# Move the sprite towards the global position at speed of 5
+		sprite_2d.global_position = sprite_2d.global_position.move_toward(global_position, 5)
+	is_moving=false
+	return
