@@ -37,3 +37,4 @@ position = Vector2(-132, -263)
 script = ExtResource("5_lquwl")
 
 [connection signal="turn_end" from="Camera2D/Player" to="Hud" method="_on_player_turn_end"]
+[connection signal="captured" from="Camera2D/Kid" to="Hud" method="_on_kid_captured"]

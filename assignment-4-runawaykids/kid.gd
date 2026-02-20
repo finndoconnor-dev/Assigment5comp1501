@@ -1,7 +1,7 @@
 extends MoveableObject
 @onready var score_text: Label = $"../../Hud/ScoreText"
 @onready var move_timer: Timer = $MoveTimer
-
+signal captured
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,7 +61,7 @@ func _on_player_turn_end() -> void:
 	move_timer.start()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("Hello")
+	captured.emit()
 
 func _on_move_timer_timeout() -> void:
 	move_in_random_direction()
