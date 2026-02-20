@@ -29,7 +29,7 @@ func move(direction : Vector2):
 	
 	# if the target tile does not exist or it's not walkable return
 	if tile_data == null or tile_data.get_custom_data("walkable") == false:
-		return
+		return false
 	
 	# turn vectors into tile map coordinates 
 	global_position = tile_map_layer.map_to_local(target_tile)

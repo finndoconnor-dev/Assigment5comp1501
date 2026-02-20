@@ -12,8 +12,21 @@ script = ExtResource("1_qmkmx")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1998744456]
 texture = ExtResource("1_to882")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=406432455]
+[node name="Area2D" type="Area2D" parent="." unique_id=1085445172]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2071083675]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2071083675]
 position = Vector2(-5, -1.5)
 shape = SubResource("RectangleShape2D_qmkmx")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=406432455]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=434656089]
+position = Vector2(-5, -1.5)
+shape = SubResource("RectangleShape2D_qmkmx")
+
+[node name="MoveTimer" type="Timer" parent="." unique_id=938241484]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
