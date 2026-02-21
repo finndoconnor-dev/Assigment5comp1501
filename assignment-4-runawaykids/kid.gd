@@ -1,68 +1,45 @@
 extends MoveableObject
-@onready var score_text: Label = $"../../Hud/ScoreText"
-@onready var move_timer: Timer = $MoveTimer
+
+signal turn_end
 signal captured
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	add_to_group("kid")
+var is_moving: bool = false
+var last_dir: int = -1
+var directions: Array = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]
 
-# boolean flag for moving
-var is_moving = false
-var can_move = false
+func on_player_turn_end() -> void:
+	move_randomly()
 
-# physics process called every frame, used for moving sprite to desired tile
-func _physics_process(delta: float) -> void:
-	
-	
-	# if currently moving return
-	if is_moving == false:
-		return
-	
-	# If the global position is the same as current sprite position then set moving to false
-	if global_position == sprite_2d.global_position:
-		get_tree().call_group("player", "_on_kid_turn_end")
-		is_moving = false
-		return
-	
-	# Move the sprite towards the global position at speed of 5
-	sprite_2d.global_position = sprite_2d.global_position.move_toward(global_position, 5)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-var last_dir = 0
-var random_dir = 0
-var directions = [Vector2(0, -2), Vector2(0, 2), Vector2(-2, 0), Vector2(2, 0)]
-
-func move_in_random_direction() -> void:
-	# return if its moveing
+func move_randomly() -> void:
 	if is_moving:
 		return
-	
-	while true:
-		random_dir = randi_range(0, 3)
-		
-		if random_dir == last_dir:
+
+	var tries = 0
+	while tries < 10:
+		var dir_index = randi() % directions.size()
+		var dir = directions[dir_index]
+
+		# avoid repeating same direction
+		if dir_index == last_dir:
+			tries += 1
 			continue
-		elif -directions[random_dir] == directions[last_dir]:
-			continue
-		else:
+
+		if move(dir):
+			last_dir = dir_index
+			is_moving = true
 			break
-	
-	is_moving = move(directions[random_dir])
-	
-	if is_moving:
-		last_dir = random_dir
+		tries += 1
 
+	emit_signal("turn_end")  # notify player
 
-func _on_player_turn_end() -> void:
-	move_timer.start()
+func _physics_process(delta: float) -> void:
+	if not is_moving:
+		return
+	# simple movement animation toward global_position
+	Sprite2D.global_position = Sprite2D.global_position.move_toward(global_position, 5)
+	if Sprite2D.global_position == global_position:
+		is_moving = false
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	captured.emit()
+func _on_area_entered(area: Area2D) -> void:
+	emit_signal("captured")
 	queue_free()
-
-func _on_move_timer_timeout() -> void:
-	move_in_random_direction()

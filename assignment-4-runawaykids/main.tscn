@@ -20,7 +20,6 @@ color = Color(0.14509805, 0.40392157, 0.078431375, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1727083261]
 position = Vector2(592, 584)
-metadata/_edit_group_ = true
 
 [node name="Grid" parent="Camera2D" unique_id=196040151 instance=ExtResource("1_0xm2m")]
 position = Vector2(-584, -584)
@@ -28,14 +27,16 @@ position = Vector2(-584, -584)
 [node name="Player" parent="Camera2D" unique_id=873568929 instance=ExtResource("2_0xm2m")]
 position = Vector2(-512, -520)
 
-[node name="Kid" parent="Camera2D" unique_id=1292562223 instance=ExtResource("3_1bvp3")]
-position = Vector2(-2, -136)
+[node name="Kid" parent="." unique_id=1292562223 instance=ExtResource("3_1bvp3")]
+position = Vector2(85, 194)
 
 [node name="Hud" parent="." unique_id=1739377850 instance=ExtResource("4_1bvp3")]
 script = ExtResource("5_lquwl")
 
-[node name="KidController" type="Node" parent="." unique_id=337602708]
+[node name="KidController" type="Node" parent="." unique_id=337602708 node_paths=PackedStringArray("player")]
 script = ExtResource("7_272bh")
+kid_scene = ExtResource("3_1bvp3")
+player = NodePath("../Camera2D/Player")
 
 [connection signal="turn_end" from="Camera2D/Player" to="Hud" method="_on_player_turn_end"]
-[connection signal="captured" from="Camera2D/Kid" to="Hud" method="_on_kid_captured"]
+[connection signal="captured" from="Kid" to="Hud" method="_on_kid_captured"]
