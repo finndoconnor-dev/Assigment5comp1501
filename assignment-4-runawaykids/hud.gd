@@ -1,5 +1,5 @@
 extends CanvasLayer
-var turn=13
+var turn=0
 var score=0
 signal turn_limit
 
