@@ -1,5 +1,6 @@
 extends MoveableObject
-
+#boolean to check if game is over
+var game_over=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("player")
@@ -10,7 +11,8 @@ signal turn_end
 
 # physics process called every frame, used for moving sprite to desired tile
 func _physics_process(delta: float) -> void:
-	
+	if (game_over):
+		return
 	# if currently moving return
 	if is_moving == false:
 		return
@@ -54,10 +56,11 @@ func _on_kid_turn_end():
 	can_move = true
 
 func _on_start_button_start():
+	game_over=false
 	can_move = true
 
 
 func _on_hud_turn_limit() -> void:
 	can_move=false
-	is_moving=false
+	game_over=true
 	move_to_start(Vector2(0,0))
