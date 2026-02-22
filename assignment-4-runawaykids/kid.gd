@@ -3,6 +3,7 @@ extends MoveableObject
 @onready var move_timer: Timer = $MoveTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_timer: Timer = $AnimationTimer
+@onready var captured_sfx: AudioStreamPlayer2D = $CapturedSfx
 signal captured
 
 
@@ -66,7 +67,9 @@ func _on_player_turn_end() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	captured.emit()
 	animation_player.play("captured")
+	captured_sfx.play()
 	animation_timer.start()
+	
 
 func _on_move_timer_timeout() -> void:
 	move_in_random_direction()

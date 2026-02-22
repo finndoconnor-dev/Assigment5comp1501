@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp7il6csy16st" path="res://kid.gd" id="1_qmkmx"]
 [ext_resource type="Texture2D" uid="uid://dxigssx2q2qx5" path="res://sprites/kidSprite.png" id="1_to882"]
+[ext_resource type="AudioStream" uid="uid://cqygqeelnurq5" path="res://sfx/soundeffect.mp3" id="3_00ewr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmkmx"]
 size = Vector2(102, 101)
@@ -93,6 +94,9 @@ libraries/ = SubResource("AnimationLibrary_00ewr")
 
 [node name="AnimationTimer" type="Timer" parent="." unique_id=1202253291]
 one_shot = true
+
+[node name="CapturedSfx" type="AudioStreamPlayer2D" parent="." unique_id=284486726]
+stream = ExtResource("3_00ewr")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
