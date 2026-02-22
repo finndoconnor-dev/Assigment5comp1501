@@ -55,3 +55,9 @@ func _on_kid_turn_end():
 
 func _on_start_button_start():
 	can_move = true
+
+
+func _on_hud_turn_limit() -> void:
+	can_move=false
+	is_moving=false
+	move_to_start()

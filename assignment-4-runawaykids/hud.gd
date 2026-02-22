@@ -1,5 +1,5 @@
 extends CanvasLayer
-var turn=0
+var turn=13
 var score=0
 signal turn_limit
 
@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	turn_limit_reached()
 
 
 func _on_player_turn_end() -> void:
@@ -29,3 +29,4 @@ func turn_limit_reached():
 		turn=0
 		$TurnCount.text= "Turn: " + str(turn)
 		turn_limit.emit()
+		$StartButton.show()
