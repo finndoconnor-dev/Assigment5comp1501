@@ -19,7 +19,6 @@ color = Color(0.14509805, 0.40392157, 0.078431375, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1727083261]
 position = Vector2(592, 584)
-metadata/_edit_group_ = true
 
 [node name="Grid" parent="Camera2D" unique_id=196040151 instance=ExtResource("1_0xm2m")]
 position = Vector2(-584, -584)
@@ -28,15 +27,44 @@ position = Vector2(-584, -584)
 position = Vector2(-512, -520)
 
 [node name="Kid" parent="Camera2D" unique_id=1292562223 instance=ExtResource("3_1bvp3")]
-position = Vector2(-388, -517)
+position = Vector2(254, 253)
 
-[node name="Kid2" parent="Camera2D" unique_id=701815536 instance=ExtResource("3_1bvp3")]
-position = Vector2(-260, -390)
+[node name="Kid2" parent="Camera2D" unique_id=1784863377 instance=ExtResource("3_1bvp3")]
+position = Vector2(254, -6)
+
+[node name="Kid3" parent="Camera2D" unique_id=845670295 instance=ExtResource("3_1bvp3")]
+position = Vector2(-1, 253)
+
+[node name="Kid4" parent="Camera2D" unique_id=1216134401 instance=ExtResource("3_1bvp3")]
+position = Vector2(-1, -10)
+
+[node name="Kid5" parent="Camera2D" unique_id=1965636421 instance=ExtResource("3_1bvp3")]
+position = Vector2(-260, 256)
+
+[node name="Kid6" parent="Camera2D" unique_id=388022993 instance=ExtResource("3_1bvp3")]
+position = Vector2(-257, -10)
+
+[node name="Kid7" parent="Camera2D" unique_id=1421865505 instance=ExtResource("3_1bvp3")]
+position = Vector2(258, -262)
+
+[node name="Kid8" parent="Camera2D" unique_id=2102415958 instance=ExtResource("3_1bvp3")]
+position = Vector2(-1, -255)
+
+[node name="Kid9" parent="Camera2D" unique_id=675938382 instance=ExtResource("3_1bvp3")]
+position = Vector2(-260, -258)
 
 [node name="Hud" parent="." unique_id=1739377850 instance=ExtResource("4_1bvp3")]
 script = ExtResource("5_lquwl")
 
 [connection signal="turn_end" from="Camera2D/Player" to="Hud" method="_on_player_turn_end"]
 [connection signal="captured" from="Camera2D/Kid" to="Hud" method="_on_kid_captured"]
+[connection signal="captured" from="Camera2D/Kid2" to="Hud" method="_on_kid_2_captured"]
+[connection signal="captured" from="Camera2D/Kid3" to="Hud" method="_on_kid_3_captured"]
+[connection signal="captured" from="Camera2D/Kid4" to="Hud" method="_on_kid_4_captured"]
+[connection signal="captured" from="Camera2D/Kid5" to="Hud" method="_on_kid_5_captured"]
+[connection signal="captured" from="Camera2D/Kid6" to="Hud" method="_on_kid_6_captured"]
+[connection signal="captured" from="Camera2D/Kid7" to="Hud" method="_on_kid_7_captured"]
+[connection signal="captured" from="Camera2D/Kid8" to="Hud" method="_on_kid_8_captured"]
+[connection signal="captured" from="Camera2D/Kid9" to="Hud" method="_on_kid_9_captured"]
 [connection signal="turn_limit" from="Hud" to="Camera2D/Player" method="_on_hud_turn_limit"]
 [connection signal="turn_limit" from="Hud" to="Camera2D/Kid" method="_on_hud_turn_limit"]
