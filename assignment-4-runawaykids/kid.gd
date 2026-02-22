@@ -77,3 +77,7 @@ func _on_move_timer_timeout() -> void:
 
 func _on_animation_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_hud_turn_limit() -> void:
+	move_to_start(Vector2(1,0))

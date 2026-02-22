@@ -37,10 +37,10 @@ func move(direction : Vector2):
 	
 	return true
 	
-func move_to_start():
+func move_to_start(startingTile:Vector2):
 	var current_tile: Vector2i = tile_map_layer.local_to_map(global_position)
 	
-	#moves player back to top left tile
-	global_position = tile_map_layer.map_to_local(Vector2(0,0))
+	#moves object back to starting tile
+	global_position = tile_map_layer.map_to_local(startingTile)
 	sprite_2d.global_position = tile_map_layer.map_to_local(current_tile)
 	sprite_2d.global_position=global_position

@@ -60,4 +60,4 @@ func _on_start_button_start():
 func _on_hud_turn_limit() -> void:
 	can_move=false
 	is_moving=false
-	move_to_start()
+	move_to_start(Vector2(0,0))
