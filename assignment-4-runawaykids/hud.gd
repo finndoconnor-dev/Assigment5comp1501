@@ -32,32 +32,3 @@ func turn_limit_reached():
 		$TurnCount.text= "Turn: " + str(turn)
 		turn_limit.emit()
 		$StartButton.show()
-
-
-func _on_kid_2_captured() -> void:
-	update_score()
-
-func _on_kid_3_captured() -> void:
-	update_score()
-
-func _on_kid_4_captured() -> void:
-	update_score()
-
-func _on_kid_5_captured() -> void:
-	update_score()
-
-
-func _on_kid_6_captured() -> void:
-	update_score()
-
-
-func _on_kid_7_captured() -> void:
-	update_score()
-
-
-func _on_kid_8_captured() -> void:
-	update_score()
-
-
-func _on_kid_9_captured() -> void:
-	update_score()
