@@ -90,7 +90,7 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 32
 text = "Use WASD keys to move
 Land on the kids to collect points 
-Game ends after 15 turns"
+Game ends after 15 turns or all kids collected"
 script = ExtResource("2_64ctp")
 
 [node name="CloseButton" type="Button" parent="." unique_id=2142057193]

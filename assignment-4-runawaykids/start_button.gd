@@ -16,5 +16,3 @@ func _process(delta: float) -> void:
 func _on_pressed() -> void:
 	start.emit()
 	hide()
-	
-	get_tree().call_group("player", "_on_start_button_start")
